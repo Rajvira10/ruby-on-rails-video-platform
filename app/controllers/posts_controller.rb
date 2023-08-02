@@ -11,6 +11,8 @@ class PostsController < ApplicationController
   end
 
   def download
+    @post = Post.find(params[:id])
+    send_data @post.video.download, filename: @post.video.filename.to_s
   end
 
   # GET /posts/new
